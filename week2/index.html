@@ -4,7 +4,9 @@
    <title></title>
 
     <link href="css/bootstrap.css" rel="stylesheet">
-
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -14,6 +16,75 @@
 
   </head>
   <body>
+    <!-- start test for modal-->
+    <ul class="nav nav-tabs">
+      <li role="" id="detailsbtn"><a href="#">Details</a></li>
+      <li role="" id="modalbtn"><a href="#">Modal</a></li>
+    </ul>
+    <br /><br />
+    <div id="content" class="container-fluid" role="main">
+    </div>
+
+    <script id="detail-template" type="text/x-handlebars-template">
+      <br />
+      <div class="row-fluid">
+        <div class="col-sm-5">
+          <img style="width:100%" src="{{src}}" />
+        </div>
+        <div class="col-sm-7">
+          <h1>{{title}}</h1>
+          <h3 class="author">
+            {{author}}
+          </h3>
+        </div>
+      </div>
+    </script>
+
+    <script id="modal-template" type="text/x-handlebars-template">
+      <div id="imageModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width:800">
+          <div class="modal-content">
+            <div class="modal-body">
+              <img style="width:100%" src="{{src}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/javascript">
+      var source = $("#detail-template").html();
+      var detail_template = Handlebars.compile(source);
+      source = $("#modal-template").html();
+      var modal_template = Handlebars.compile(source);
+
+      var data = {
+        src: "images/img_1.jpg",
+        title: "The earth seen from apollo 17",
+        author: "Ed g2s"
+      };
+      // var image1Data = {
+      //   title: "image1",
+      //   author: "Tuxtso",
+      //   src: "images/img_1.jpg"
+      // };
+      $("#detailsbtn").click(function (){
+        $("#imageModal").modal('hide');
+        var html = detail_template(data);
+        $("#content").html(html);
+      });
+      $("#modalbtn").click(function () {
+        var html = modal_template(data);
+        $("#content").html(html);
+        $("#imageModal").modal('show');
+        $("#imageModal").on('hidden.bs.modal', function () {
+          $("#detailsbtn").click();
+        });
+      });
+    </script>
+    <!-- / test for modal-->
+
+
     <nav class="navbar navbar-default">
       <div class="container-fluid">
 
@@ -25,7 +96,7 @@
           data-toggle="collapse"
           data-target="#main_navbar"
           aria-expanded="false">open!</button>
-        </div><!-- / collapsed navbar-->
+        </div><!-- / collapsed navbar -->
 
         <!-- start uncollapsed navbar-->
         <div
