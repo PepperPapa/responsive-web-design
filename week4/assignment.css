@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  background-color: #e8e8e8;
+}
+.head_bar {
+  height: 52px;
+  background-color: white;
+  border-bottom: 2px solid #d0d0d0;
+}
+#search_input {
+  position: relative;
+  top: 11px;
+  left: 90px;
+  width: 72%;
+  height: 30px;
+  /*border-radius: 5px;*/
+  border: 1px solid #d0d0d0;
+  background-color: #e8e8e8;
+  padding-left: 15px;
+}
+.page-header {
+  width: 60%;
+  margin: 15px auto;
+  padding: 0;
+  text-align: center;
+  border: none;
+}
+.page-header h1 {
+  margin: 0;
+  color: #484848;
+  font-size: 360%;
+  font-weight: bold;
+}
+.albums {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+.albums h2 {
+  font-size: 1em;
+  color: #909090;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.animals_category {
+  margin: 0 10px;
+  width: 120px;
+  height: 120px;
+  float: left;
+}
+.animals_category img {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
