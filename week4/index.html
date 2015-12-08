@@ -29,26 +29,34 @@
         <h1>Animals Albums</h1>
       </div>
 
-      <!-- show albums: -->
-      <div class="albums">
+      <!-- show albums:
+      the content section is empty as we will fill it
+      via javascript and templates -->
+      <div id="content" class="albums" role="main">
         <h2>related topics</h2>
-        <!-- the content section is empty as we will fill it
-              via javascript and templates -->
-        <div class="animals_category">
-          <img src="images/img_2.jpg" alt="" />
-        </div>
-        <div class="animals_category">
-          <img src="images/img_2.jpg" alt="" />
-        </div>
-        <div class="animals_category">
-          <img src="images/img_2.jpg" alt="" />
-        </div>
-        <div class="animals_category">
-          <img src="images/img_2.jpg" alt="" />
-        </div>
       </div>
     </div>
     <!-- / animals page-->
+
+    <!-- Here are templates -->
+
+    <!-- this is the albumns view template -->
+    <script id="albums-template" type="text/x-handlebars-template">
+      <h2>related topics</h2>
+      <ul id="animal-albums">
+      {{#each category}}
+        <li>
+          <div class="album-thumbnail" data-id="{{@index}}">
+            <img class="crop-img" src="{{thumbnail}}" alt=""/>
+            <div class="caption">
+              <h4> {{name}} </h4>
+              <p>{{animals.length}} animals</p>
+            </div>
+           </div>
+         </li>
+      {{/each}}
+      </ul>
+    </script>
   </body>
 </html>
 <head>
