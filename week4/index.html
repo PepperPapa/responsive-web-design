@@ -17,7 +17,7 @@
   <body>
     <!-- start head bar-->
     <div class="head_bar">
-      <input id="search_input" type="search" name="search"
+      <input id="search_input" type="input" name="search"
              placeholder="Enter animals keyword">
     </div>
     <!-- / head bar-->
@@ -35,8 +35,16 @@
       <div id="content" class="albums" role="main">
         <h2>related topics</h2>
       </div>
-    </div>
+    </div> <!-- / container -->
     <!-- / animals page-->
+
+    <!-- show all photos of a single album(default),
+      or photos matched searching keywords
+      the content section is empty as we will fill it
+      via javascript and templates  -->
+    <div id="photo-blocks">
+    </div>
+
 
     <!-- Here are templates -->
 
@@ -57,6 +65,26 @@
       {{/each}}
       </ul>
     </script>
+
+    <!-- this is the template for the photos of a single album -->
+    <script id="photos-template" type="text/x-handlebars-template">
+      {{#each animals}}
+      <div class="single-block">
+        <img class="single-animal" src="{{image1}}" alt=""/>
+        <div class="animal-info">
+          <h4> {{name}} </h4>
+          <p>{{description}}</p>
+        </div>
+      </div>
+
+      <div class="single-block">
+        <img class="single-animal" src="{{image2}}" alt=""/>
+        <div class="animal-info">
+          <h4> {{name}} </h4>
+          <p>{{description}}</p>
+        </div>
+      </div>
+      {{/each}}
+    </script>
   </body>
 </html>
-<head>
