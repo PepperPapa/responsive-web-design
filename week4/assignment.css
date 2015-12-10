@@ -3,24 +3,31 @@ body {
   background-color: #e8e8e8;
 }
 .head_bar {
-  height: 52px;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  height: 56px;
+  width: 100%;
   background-color: white;
-  border-bottom: 2px solid #d0d0d0;
+  border-bottom: 1px groove #efefef;
 }
 #search_input {
   position: relative;
   top: 11px;
   left: 90px;
   width: 72%;
-  height: 30px;
+  height: 34px;
   /*border-radius: 5px;*/
   border: 1px solid #d0d0d0;
   background-color: #e8e8e8;
   padding-left: 15px;
 }
+input:focus {
+  outline: none;
+}
 .page-header {
   width: 60%;
-  min-width: 684px;
+  min-width: 600px;
   margin: 15px auto;
   padding: 0;
   text-align: center;
@@ -31,6 +38,10 @@ body {
   color: #484848;
   font-size: 360%;
   font-weight: bold;
+}
+.container {
+  margin-top: 56px;
+  min-width: 600px;
 }
 #content {
   width: 100%;
@@ -49,7 +60,6 @@ body {
 }
 #animal-albums {
   width: 100%;
-  min-width: 600px;
   margin: 0 auto;
 }
 .album-thumbnail {
@@ -67,15 +77,23 @@ body {
   margin: 0;
   position: relative;
   bottom: 40px;
+  text-shadow: 0px 2px 0px #282828;
 }
 .album-thumbnail p {
   color: #F8F8F8;
   margin: 0;
   position: relative;
   bottom: 40px;
+  text-shadow: 0px 2px 0px #282828;
 }
 #animal-albums li {
   display: inline-block;
+}
+.crop-img {
+  opacity: 0.6;
+}
+.crop-img:hover {
+  opacity: 0.9;
 }
 #photo-blocks {
   width: 100%;
