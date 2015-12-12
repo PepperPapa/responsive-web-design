@@ -9,8 +9,8 @@ function popupimgHandler() {
 	$('#bigimage-bg').css("display", "block");
 	$('#bigimage').css("display", "block");
 	$('#bigimage').width("60%");
-	$('#bigimage').offset({top: ($(window).height() - $('#bigimage').height() - 30) / 2,
-												left: ($(window).width() - $('#bigimage').width() - 30) / 2});
+	$('#bigimage').offset({top: ($(window).height() - $('#bigimage').height()) / 2,
+												left: ($(window).width() - $('#bigimage').width()) / 2});
 	$('#bigimage-bg').click(function (){
 		$('#bigimage-bg').css("display", "none");
 		$('#bigimage').css("display", "none");
@@ -56,14 +56,18 @@ $(document).ready(function(){
 	$('.single-animal').click(function () {
 		// get the image src attribute
 		var img_src = $(this).attr('src');
-		console.log(img_src);
+		// console.log(img_src);
 
 		// set src value to single-animal img element
 		$('#popimage').attr("src", img_src);
 		popupimgHandler();
 	});
+
+	// window resize handler
 	$(window).resize(function () {
-		popupimgHandler();
+		$('#bigimage').width("60%");
+		$('#bigimage').offset({top: ($(window).height() - $('#bigimage').height()) / 2,
+													left: ($(window).width() - $('#bigimage').width()) / 2});
 	});
 
 	// click one album, show all photos of the album
@@ -87,11 +91,12 @@ $(document).ready(function(){
 		$('.single-animal').click(function () {
 			// get the image src attribute
 			var img_src = $(this).attr('src');
-			console.log(img_src);
+			// console.log(img_src);
 
 			// set src value to single-animal img element
 			$('#popimage').attr("src", img_src);
 			popupimgHandler();
+
 		});
 	});
 
@@ -136,7 +141,7 @@ $(document).ready(function(){
 			 	};
 
 			 	// this is for debugging
-			 	console.log(filteredData);
+				// 	console.log(filteredData);
 
 			 	// pass the newly filtered data into
 	      // the template to generate new html
@@ -146,7 +151,7 @@ $(document).ready(function(){
 				$('.single-animal').click(function () {
 					// get the image src attribute
 					var img_src = $(this).attr('src');
-					console.log(img_src);
+					// console.log(img_src);
 
 					// set src value to single-animal img element
 					$('#popimage').attr("src", img_src);
